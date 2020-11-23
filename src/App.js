@@ -30,6 +30,19 @@ function App() {
         <button onClick = {event => setData(data + event.target.value)} value = "-">-</button>
         <button onClick = {event => setData(data + event.target.value)} value = "*">*</button>
         <button onClick = {event => setData(data + event.target.value)} value = "/">/</button>
+        <button onClick = {e => {
+          try {
+            setData(
+              String(eval(data)).includes(".") ? String(eval(data).toFixed(5)) :  String(eval(data))
+            )
+          }
+          catch (err) {
+            console.log(err);
+          }
+        }}
+        value = "=">
+          =
+        </button>
       </div>
     </div>
   );
